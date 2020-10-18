@@ -1,50 +1,31 @@
-#include<iostream>
-using namespace std;
-void insert(int arr[], int i)
-{
-        int key, j;
-        key = arr[i];  
-        j = i - 1;
-        while (j >= 0 && arr[j] > key) 
-        {  
-            arr[j + 1] = arr[j];  
-            j = j - 1;  
-        }  
-        arr[j + 1] = key;  
+#include<iostream.h>
+#include<conio.h>
+void insort(int num[],int size)
+{	int T,j;
+	for(int i=1;i<size;i++)
+	{	T=num[i];
+		j=i-1;
+		while(T<num[j]&&j>=0)
+		{	num[j+1]=num[j];
+			j=j-1;
+		}
+		num[j+1]=T;
+	}
 }
+void main()
+{	clrscr();
+	int a[50],s;
+	cout<<"\n\t\tEnter size of the array:";
+	cin>>s;
+	cout<<"\n\t\tEnter the records into the array:\n\t\t";
+	for(int i=0;i<s;i++)
+	       {	cin>>a[i];
+			cout<<"\n\t\t";
+	       }
+	cout<<"\n\t\tSorted array is as follows:\n\t\t";
+	insort(a,s);
+	for(int n=0;n<s;n++)
+	       {	cout<<a[n]<<"\n\t\t";
+	       }
 
-void insertionSort(int arr[], int n)
-{
-   int i;
-   for (i = 1; i <n; i++)
-      insert(arr, i);
 }
-
-
-void printArray(int arr[], int size)
-{
-    int i;
-    for (i=0; i < size; i++)
-        cout<<arr[i];
-   cout<<endl;
-}
-
-int main()
-{
-    int arr[1000],n,T,i;
-
-    cin>>T;
-
-    while(T--){
-
-    cin>>n;
-
-    for(i=0;i<n;i++)
-      cin>>arr[i];
-
-    insertionSort(arr, n);
-    printArray(arr, n);
-    }
-    return 0;
-}
-
