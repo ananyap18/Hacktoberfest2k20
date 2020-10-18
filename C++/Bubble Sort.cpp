@@ -1,29 +1,31 @@
-#include<iostream>
-using namespace std;
-int main ()
-{
-   int i, j,temp,pass=0;
-   int a[10] = {10,2,0,14,43,25,18,1,5,45};
-   cout <<"Input list ...\n";
-   for(i = 0; i<10; i++) {
-      cout <<a[i]<<"\t";
-   }
-cout<<endl;
-for(i = 0; i<10; i++) {
-   for(j = i+1; j<10; j++)
-   {
-      if(a[j] < a[i]) {
-         temp = a[i];
-         a[i] = a[j];
-         a[j] = temp;
-      }
-   }
-pass++;
+#include<iostream.h>
+#include<conio.h>
+void bubblesort(int arr[],int size)
+{	int temp;
+	for(int i=0;i<size;i++)
+	{	for(int j=0;j<size-1;j++)
+		{	if(arr[j]>arr[j+1])
+			{	temp=arr[j];
+				arr[j]=arr[j+1];
+				arr[j+1]=temp;
+			}
+		}
+	}
 }
-cout <<"Sorted Element List ...\n";
-for(i = 0; i<10; i++) {
-   cout <<a[i]<<"\t";
-}
-cout<<"\nNumber of passes taken to sort the list:"<<pass<<endl;
-return 0;
+void main()
+{	clrscr();
+	int a[50],s;
+	cout<<"\n\t\tEnter size of the array:";
+	cin>>s;
+	cout<<"\n\t\tEnter the records into the array:\n\t\t";
+	for(int i=0;i<s;i++)
+	       {	cin>>a[i];
+			cout<<"\n\t\t";
+	       }
+	cout<<"\n\t\tSorted array is as follows:\n";
+	bubblesort(a,s);
+	for(int n=0;n<s;n++)
+	       {	cout<<a[n]<<"\n\t\t";
+	       }
+
 }
